@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rachit's AR Card</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+      
+      <!-- Marker is your visiting card image -->
+      <a-marker type="pattern" url="pattern-marker.patt">
+
+        <!-- AR Text -->
+        <a-entity
+          position="0 1 0"
+          text="value: Hi, I'm Rachit; color: #00FFEA; width: 3;">
+        </a-entity>
+
+        <!-- AR Video Persona -->
+        <a-video
+          src="#introvideo"
+          width="2"
+          height="1.2"
+          position="0 0.3 0"
+          rotation="-90 0 0">
+        </a-video>
+
+        <!-- Social Buttons as 3D planes -->
+        <a-plane color="#0077B5" width="1" height="0.3" position="0 -0.4 0" rotation="-90 0 0"
+                 onclick="window.open('https://www.linkedin.com/in/rachit-sharma-0b9b44117/', '_blank');">
+          <a-text value="LinkedIn" align="center" position="0 0 0.1"></a-text>
+        </a-plane>
+
+        <a-plane color="#000000" width="1" height="0.3" position="0 -0.8 0" rotation="-90 0 0"
+                 onclick="window.open('https://github.com/RachitSharma123', '_blank');">
+          <a-text value="GitHub" align="center" position="0 0 0.1"></a-text>
+        </a-plane>
+
+        <a-plane color="#E1306C" width="1" height="0.3" position="0 -1.2 0" rotation="-90 0 0"
+                 onclick="window.open('https://instagram.com/rachitsharma_a', '_blank');">
+          <a-text value="Instagram" align="center" position="0 0 0.1"></a-text>
+        </a-plane>
+
+        <a-plane color="#FFDD00" width="1" height="0.3" position="0 -1.6 0" rotation="-90 0 0"
+                 onclick="window.open('resume.pdf', '_blank');">
+          <a-text value="Resume" align="center" position="0 0 0.1"></a-text>
+        </a-plane>
+
+        <a-plane color="#34A853" width="1" height="0.3" position="0 -2.0 0" rotation="-90 0 0"
+                 onclick="window.open('contact.vcf', '_blank');">
+          <a-text value="Save Contact" align="center" position="0 0 0.1"></a-text>
+        </a-plane>
+
+      </a-marker>
+
+      <a-assets>
+        <video id="introvideo" src="video.mp4" autoplay loop muted></video>
+      </a-assets>
+
+      <a-entity camera></a-entity>
+
+    </a-scene>
+  </body>
+</html>
